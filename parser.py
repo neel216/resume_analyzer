@@ -1,12 +1,17 @@
 '''
+Resume parser to give information to be evaluated in reviewer.py
 '''
 
 from docx import Document
 import win32com.client as win32
+
 import os
 
 
 class Resume:
+    '''
+    Loads a resume Word document and parses it to automate some basic resume reviewing tasks
+    '''
 
     def __init__(self, path):
         self.PATH = path # set resume path
@@ -21,9 +26,15 @@ class Resume:
             self.content.append(paragraph.text)
 
     def get_content(self):
+        '''
+        Return the text content as an array to be parsed later
+        '''
         return self.content
     
     def get_page_count(self):
+        '''
+        Return the number of pages in the document/resume
+        '''
         try:
             # open word document
             word = win32.gencache.EnsureDispatch('Word.Application')
@@ -50,5 +61,5 @@ class Resume:
     
 if __name__ == "__main__":
     resume = Resume('./test_data/resume_template.docx')
-    # resume.print_content()
+    #print(resume.get_content())
     print(f'Detected {resume.get_page_count()} pages in resume')
