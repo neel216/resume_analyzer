@@ -6,6 +6,7 @@ from docx import Document
 import win32com.client as win32
 
 import os
+import re
 
 
 class Resume:
@@ -44,22 +45,39 @@ class Resume:
             
             # get number of sheets
             doc.Repaginate()
-            self.pages = doc.ComputeStatistics(2)
+            pages = doc.ComputeStatistics(2)
 
             # close word
             doc.Close()
             word.Quit()
 
-            return self.pages
+            return pages
         
         # if error while loading document or getting page count
         except:
             print('[ERROR] Error Checking Page Count. Make sure document is not in Protected View Mode.')
         
         return None
+    
+    def get_text(self):
+        '''
+        Parses the content list to refine the analyzable text
+        '''
+        # Remove short words and phrases that aren't narrative
+        for c in reversed(self.content):
+            if len(c) < 5 or len(c.strip().split(' ')) < 5:
+                self.content.remove(c)
+        
+        # Delete escape characters
+        self.text = []
+        for c in self.content:
+            self.text.append(c.replace('\t', ''))
+        
+        return self.text
+
 
     
 if __name__ == "__main__":
     resume = Resume('./test_data/resume_template.docx')
-    #print(resume.get_content())
+    print(resume.get_text())
     print(f'Detected {resume.get_page_count()} pages in resume')
