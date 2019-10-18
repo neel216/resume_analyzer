@@ -1,9 +1,11 @@
 '''
 Resume parser to give information to be evaluated in reviewer.py
 '''
-
 from docx import Document
 import win32com.client as win32
+
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 import os
 import re
@@ -15,7 +17,7 @@ class Resume:
     '''
 
     def __init__(self, path):
-        self.PATH = path # set resume path
+        self.PATH = path
         
         self.document = Document(self.PATH) # load word document
 
@@ -25,12 +27,6 @@ class Resume:
         # add each paragraph to content list
         for paragraph in paragraph_list:
             self.content.append(paragraph.text)
-
-    def get_content(self):
-        '''
-        Return the text content as an array to be parsed later
-        '''
-        return self.content
     
     def get_page_count(self):
         '''
@@ -74,10 +70,15 @@ class Resume:
             self.text.append(c.replace('\t', ''))
         
         return self.text
-
-
+   
+    def sentiment(self, text):
+        nltk_sentiment = SentimentIntensityAnalyzer()
+        
+        score = nltk_sentiment.polarity_scores(text)
+        return score
     
 if __name__ == "__main__":
     resume = Resume('./test_data/resume_template.docx')
     print(resume.get_text())
     print(f'Detected {resume.get_page_count()} pages in resume')
+    print(resume.sentiment('Neel is a very good person.'))
