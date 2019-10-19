@@ -18,7 +18,16 @@ def get_page_count(resume):
     
     return pages, appropriate
 
+def get_text_sentiment(resume):
+    appropriate = None
+    sentiment = resume.text_sentiment()
 
-def get_text_sentiment(resume):         # TODO - check if resume is at or above the minimum
-    return resume.text_sentiment()
+    if sentiment[0] == 'negative':
+        appropriate = False
+    elif sentiment[0] == 'positive' and sentiment[1] >= 0.5:
+        appropriate = False
+    else:
+        appropriate = True
+    
+    return sentiment[0], appropriate    # TODO - convert to string?
 
