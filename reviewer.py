@@ -31,3 +31,4 @@ def get_text_sentiment(resume):
     
     return sentiment[0], appropriate    # TODO - convert to string?
 
+print('run')
