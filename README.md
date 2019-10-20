@@ -1,8 +1,8 @@
 # Resume Analyzer
-Python scripts to analyze a federal sector resume and provide basic feedback
+An automated resume reviewer to analyze a federal sector resume and provide basic feedback (length, sentiment, spelling)
 
 ## Usage
-1. Make sure you have installed Python 3.7.5: https://www.python.org/downloads/  
+1. Make sure you have installed Python 3.7.5: https://www.python.org/downloads/release/python-375/
     a. __Windows__: download and run the 'Windows x86-64 executable installer'  
     b. __MacOS__: download and run the 'macOS 64-bit installer'  
     c. **ALL OPERATING SYSTEMS**: Make sure you check 'Add Python to PATH' and 'Allow Python to bypass the maximum PATH character limit'
@@ -14,7 +14,3 @@ Python scripts to analyze a federal sector resume and provide basic feedback
 
 ## Development
 Add any new dependencies into `requirements.txt`. They will be automatically detected by `setup.py`.
-
-
-## TODO
-1. Look into grammar/punctuation/spelling python libraries
