@@ -39,21 +39,23 @@ def get_text_sentiment(resume):
 
 
 FOLDER_PATH = os.getcwd() + '\\resumes'
-print('\nLoaded Resumes:')
-if len(os.listdir(FOLDER_PATH)) == 0:
-    print("Did not detect any resumes. Add resumes to the 'resumes' folder to review them.")
-else:
-    for file in os.listdir(FOLDER_PATH):
-        print(f'\t{file}')
 
 while True:
-    try:
-        file_to_review = input('\nWhich resume would you like to review? Be sure to type in the full file name and extension. ')
-        
-        resume = Resume(FOLDER_PATH + '\\' + file_to_review)
-        print(get_page_count(resume))
-        print(get_text_sentiment(resume))
+    # Print resume files in resumes directory
+    print('\nLoaded Resumes:')
+    if len(os.listdir(FOLDER_PATH)) == 0:
+        print("Did not detect any resumes. Close this window, add any resumes you want to review to the 'resumes' folder, then run this file to review them.")
+        input('')
+    else:
+        for file in os.listdir(FOLDER_PATH):
+            print(f'\t{file}')
 
-        break
-    except PackageNotFoundError:
-        print("Sorry, we didn't find that file in the 'resumes' folder.\n")
+        try:
+            file_to_review = input('\nWhich resume would you like to review? Be sure to type in the full file name and extension. ')
+
+            resume = Resume(FOLDER_PATH + '\\' + file_to_review)
+            print(get_page_count(resume))
+            print(get_text_sentiment(resume))
+
+        except PackageNotFoundError:
+            print("Sorry, we didn't find that file in the 'resumes' folder.\n")
