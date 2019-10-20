@@ -1,2 +1,2 @@
 python setup.py
-python reviewer.py
+python interface.py
