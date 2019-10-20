@@ -6,7 +6,7 @@ An automated resume reviewer to analyze a federal sector resume and provide basi
 1. Make sure you have installed the latest version of Python: https://www.python.org/downloads/release/python-380/  
     a. __Windows__: scroll down to 'Files'. Then, download and run the 'Windows x86-64 executable installer'  
     b. __macOS__: scroll down to 'Files'. Then, download and run the 'macOS 64-bit installer'  
-    c. **ALL OPERATING SYSTEMS**: Make sure you check 'Add Python to PATH' and 'Allow Python to bypass the maximum PATH character limit'
+    c. **ALL OPERATING SYSTEMS**: In the installer, make sure you check 'Add Python to PATH' and 'Allow Python to bypass the maximum PATH        character limit'
 2. Download the files from this repository by clicking the green `Clone or Download` button in the top right of this page and select          `Download ZIP`.
 3. Unzip the folder  
     a. __Windows__: Right click the zipped resume reviewer folder and select 'Extract All'. This will create an unzipped folder for you to        access.  
