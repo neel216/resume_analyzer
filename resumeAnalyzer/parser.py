@@ -3,10 +3,7 @@ Resume parser to give information to be evaluated in reviewer.py
 '''
 from docx import Document
 import win32com.client as win32
-import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-
-import os
 
 
 class Resume:
@@ -34,8 +31,7 @@ class Resume:
             # open word document
             word = win32.gencache.EnsureDispatch('Word.Application')
             word.Visible = False
-            doc_path = os.getcwd() + self.PATH
-            doc = word.Documents.Open(doc_path)
+            doc = word.Documents.Open(self.PATH)
             
             # get number of sheets
             doc.Repaginate()
@@ -103,7 +99,9 @@ class Resume:
 
 
 if __name__ == "__main__":
-    resume = Resume('./test_data/resume_template.docx')
+    import os
+
+    resume = Resume(os.getcwd() + '\\test_data\\resume_template.docx')
     resume.get_text()
     print(f'Detected {resume.page_count()} pages in resume')
     sentiment = resume.text_sentiment()
