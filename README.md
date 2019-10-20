@@ -10,7 +10,7 @@ An automated resume reviewer to analyze a federal sector resume and provide basi
 2. Download the files from this repository by clicking the green `Clone or Download` button in the top right of this page and select          `Download ZIP`.
 3. Unzip the folder  
     a. __Windows__: Right click the zipped resume reviewer folder and select 'Extract All'. This will create an unzipped folder for you to        access.  
-    b. __macOS__: Double click the zipped resume reviewer folder (MacOS will automatically unzip the folder)  
+    b. __macOS__: Double click the zipped resume reviewer folder (macOS will automatically unzip the folder)  
     c. **ALL OPERATING SYSTEMS**: Move the unzipped resume reviewer folder into a place where you will remember it.
 4. Add any resumes to be reviewed into the `resumes` folder. The program will only detect resumes if they are inside this folder.
 5. Run the reviewer  
