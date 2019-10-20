@@ -18,11 +18,15 @@ def install(package):
     else:
         pip._internal.main(['install', package])
 
-
+# Download requirements from requirements.txt
 with open('requirements.txt', 'r') as reqs:
     deps = reqs.read().split('\n')
 for dep in deps:
     install(dep)
 
+
 import nltk
-nltk.download('vader_lexicon')
+import os
+
+nltk.download('vader_lexicon') # Load nltk library for sentiment analysis
+os.remove('resumes/.gitignore') # Delete .gitignore in resumes folder
