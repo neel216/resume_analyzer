@@ -6,27 +6,32 @@ Instructions to setup resume reviewer
 
 This file installs the required dependencies for the resume reviewer.
 '''
-import pip
-from pip._internal import main as pipmain
-
-def install(package):
-    '''
-    Installs the specified Python package using pip
-    '''
-    if hasattr(pip, 'main'):
-        pipmain(['install', package])
-    else:
-        pip._internal.main(['install', package])
-
-# Download requirements from requirements.txt
-with open('requirements.txt', 'r') as reqs:
-    deps = reqs.read().split('\n')
-for dep in deps:
-    install(dep)
-
-
-import nltk
 import os
 
-nltk.download('vader_lexicon') # Load nltk library for sentiment analysis
-os.remove('resumes/.gitignore') # Delete .gitignore in resumes folder
+# If running the reviewer for the first time
+if '.gitignore' in os.listdir('resumes/'):
+    import pip
+    from pip._internal import main as pipmain
+
+    def install(package):
+        '''
+        Installs the specified Python package using pip
+        '''
+        if hasattr(pip, 'main'):
+            pipmain(['install', package])
+        else:
+            pip._internal.main(['install', package])
+
+    # Download requirements from requirements.txt
+    with open('requirements.txt', 'r') as reqs:
+        deps = reqs.read().split('\n')
+    for dep in deps:
+        install(dep)
+
+
+    import nltk
+
+    nltk.download('vader_lexicon') # Load nltk library for sentiment analysis
+    os.remove('resumes/.gitignore') # Delete .gitignore in resumes folder
+else:
+    print('Loaded dependencies.')

@@ -39,9 +39,12 @@ def get_text_sentiment(resume):
 
 
 FOLDER_PATH = os.getcwd() + '\\resumes'
-print('Loaded Resumes:')
-for file in os.listdir(FOLDER_PATH):
-    print(f'\t{file}')
+print('\nLoaded Resumes:')
+if len(os.listdir(FOLDER_PATH)) == 0:
+    print("Did not detect any resumes. Add resumes to the 'resumes' folder to review them.")
+else:
+    for file in os.listdir(FOLDER_PATH):
+        print(f'\t{file}')
 
 while True:
     try:
