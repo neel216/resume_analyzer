@@ -9,6 +9,9 @@ Python scripts to analyze a federal sector resume and provide basic feedback
 6. Add any resumes to be reviewed into the `resumes` folder. The program will only detect resumes if they are inside this folder.
 6. Run the `reviewer.py` file by double-clicking it. This is the main application of the reviewer and will be the only file you run when continuing to use the reviewer.
 
+## Development
+Add any new dependencies into `requirements.txt`. They will be automatically detected by `setup.py`.
+
 
 ## TODO
 1. Look into grammar/punctuation/spelling python libraries
