@@ -15,9 +15,10 @@ def install(package):
         pip._internal.main(['install', package])
 
 
-install('python-docx')
-install('pywin32')
-install('nltk')
+with open('requirements.txt', 'r') as reqs:
+    deps = reqs.read().split('\n')
+for dep in deps:
+    install(dep)
 
 import nltk
 nltk.download('vader_lexicon')
