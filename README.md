@@ -15,4 +15,3 @@ Add any new dependencies into `requirements.txt`. They will be automatically det
 
 ## TODO
 1. Look into grammar/punctuation/spelling python libraries
-2. Make sure reviewer will put resume into a folder called 'resumes' and that code has functionality for that folder change (rather than test_data)
