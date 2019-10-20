@@ -2,6 +2,9 @@
 Interface for federal resume reviewer
 '''
 from resumeAnalyzer.parser import Resume
+from docx.opc.exceptions import PackageNotFoundError
+
+import os
 
 
 def resume_review(file_path):
@@ -11,12 +14,12 @@ def get_page_count(resume):
     appropriate = None
     pages = resume.page_count()
 
-    if pages < 5 or pages > 7:          # TODO - check email to see if page limits are correct
+    if pages < 5 or pages > 7:
         appropriate = False
     else:
         appropriate = True
     
-    return pages, appropriate
+    return f'There are {pages} pages in the resume' # TODO - add code to add appropriate message?
 
 def get_text_sentiment(resume):
     appropriate = None
@@ -29,4 +32,22 @@ def get_text_sentiment(resume):
     else:
         appropriate = True
     
-    return sentiment[0], appropriate    # TODO - convert to string?
+    return f'The tone of the resume is {sentiment[0]} with a value of {sentiment[1]}' # TODO - add add code to add appropriate message?
+
+
+FOLDER_PATH = os.getcwd() + '\\resumes'
+print('Loaded Resumes:')
+for file in os.listdir(FOLDER_PATH):
+    print(f'\t{file}')
+
+while True:
+    try:
+        file_to_review = input('Which resume would you like to review? Be sure to type in the full file name and extension. ')
+        
+        resume = resume_review(FOLDER_PATH + '\\' + file_to_review)
+        print(get_page_count(resume))
+        print(get_text_sentiment(resume))
+
+        break
+    except PackageNotFoundError:
+        print("Sorry, we didn't find that file in the 'resumes' folder.\n")
