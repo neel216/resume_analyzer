@@ -48,7 +48,7 @@ else:
 
 while True:
     try:
-        file_to_review = input('Which resume would you like to review? Be sure to type in the full file name and extension. ')
+        file_to_review = input('\nWhich resume would you like to review? Be sure to type in the full file name and extension. ')
         
         resume = Resume(FOLDER_PATH + '\\' + file_to_review)
         print(get_page_count(resume))
