@@ -7,10 +7,10 @@ from docx.opc.exceptions import PackageNotFoundError
 import os
 
 
-def resume_review(file_path):
-    return Resume(file_path)
-
 def get_page_count(resume):
+    '''
+    Returns the page count of a resume in string format
+    '''
     appropriate = None
     pages = resume.page_count()
 
@@ -22,6 +22,9 @@ def get_page_count(resume):
     return f'There are {pages} pages in the resume' # TODO - add code to add appropriate message?
 
 def get_text_sentiment(resume):
+    '''
+    Returns the majority calculated sentiment of a resume in string format
+    '''
     appropriate = None
     sentiment = resume.text_sentiment()
 
@@ -44,7 +47,7 @@ while True:
     try:
         file_to_review = input('Which resume would you like to review? Be sure to type in the full file name and extension. ')
         
-        resume = resume_review(FOLDER_PATH + '\\' + file_to_review)
+        resume = Resume(FOLDER_PATH + '\\' + file_to_review)
         print(get_page_count(resume))
         print(get_text_sentiment(resume))
 
