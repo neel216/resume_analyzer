@@ -3,7 +3,7 @@ An automated resume reviewer to analyze a federal sector resume and provide basi
 
 ## Usage
 **READ ALL INSTRUCTIONS BEFORE BEGINNING INSTALLATION**
-1. Make sure you have installed the latest version of Python: https://www.python.org/downloads/release/python-380/
+1. Make sure you have installed the latest version of Python: https://www.python.org/downloads/release/python-380/  
     a. __Windows__: scroll down to 'Files'. Then, download and run the 'Windows x86-64 executable installer'  
     b. __macOS__: scroll down to 'Files'. Then, download and run the 'macOS 64-bit installer'  
     c. **ALL OPERATING SYSTEMS**: Make sure you check 'Add Python to PATH' and 'Allow Python to bypass the maximum PATH character limit'
