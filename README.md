@@ -25,7 +25,7 @@ __macOS__: Move any resumes to be reviewed into the 'resumes' folder. Double cli
 
 ## OS Support
 The library that allows the page count functions to work are not supported on macOS or Linux.
-If your program is not working on macOS or Linux, try using a Windows machine as the program has more support for that platform or consider running a Windows virtual machine or dual-booting using Bootcamp.
+If your program is not working on macOS or Linux, try using a Windows machine as the program has the most support for Windows or consider running a Windows virtual machine or dual-booting using [Bootcamp](https://support.apple.com/boot-camp).
 
 ## Development
 Add any new dependencies into `requirements.txt`. They will be automatically detected by `setup.py`.  
