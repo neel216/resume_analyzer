@@ -1,7 +1,7 @@
 '''
 Interface for federal resume reviewer
 '''
-from resumeAnalyzer.parser import Resume
+from resumeAnalyzer.parser import Resume, PAGE_COUNT_ALLOWED
 from docx.opc.exceptions import PackageNotFoundError
 
 import os
@@ -54,7 +54,8 @@ while True:
             file_to_review = input('\nWhich resume would you like to review? Be sure to type in the full file name and extension. ')
 
             resume = Resume(FOLDER_PATH + '\\' + file_to_review)
-            print(get_page_count(resume))
+            if PAGE_COUNT_ALLOWED == True:
+                print(get_page_count(resume))
             print(get_text_sentiment(resume))
 
         except PackageNotFoundError:

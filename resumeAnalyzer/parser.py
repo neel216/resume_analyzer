@@ -2,8 +2,16 @@
 Resume parser to give information to be evaluated in reviewer.py
 '''
 from docx import Document
-import win32com.client as win32
+
+PAGE_COUNT_ALLOWED = True
+try:
+    import win32com.client as win32
+except ModuleNotFoundError:
+    PAGE_COUNT_ALLOWED = False
+    print('Page Count will not work in this system.')
+
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from resumeAnalyzer import spellCheck
 
 
 class Resume:
@@ -16,11 +24,9 @@ class Resume:
         
         self.document = Document(self.PATH) # load word document
 
-        paragraph_list = self.document.paragraphs # find paragraphs in text
         self.content = []
-
-        # add each paragraph to content list
-        for paragraph in paragraph_list:
+        # add each paragraph text to content list
+        for paragraph in self.document.paragraphs:
             self.content.append(paragraph.text)
     
     def page_count(self):
@@ -96,13 +102,27 @@ class Resume:
                 sentiment = (_type, value)
 
         return sentiment
+    
+    def spell_check(self):
+        
+        for paragraph in self.document.paragraphs:
+            for word in spellCheck.words(paragraph):
+                corrected_word = spellCheck.correction(word)
+                if corrected_word != word:
+                    '''Replace word in words(paragraph)'''
+                    print(f'Correction should be made from -{word}- to -{corrected_word}')
+
+
+        #self.document.save(self.PATH)
 
 
 if __name__ == "__main__":
     import os
 
-    resume = Resume(os.getcwd() + '\\test_data\\resume_template.docx')
+    resume = Resume(os.path.dirname(os.path.realpath(__file__)) + '\\test_data\\resume_template.docx')
     resume.get_text()
-    print(f'Detected {resume.page_count()} pages in resume')
+    if PAGE_COUNT_ALLOWED == True:
+        print(f'Detected {resume.page_count()} pages in resume')
     sentiment = resume.text_sentiment()
     print(f'Detected tone of resume is {sentiment[0]} of value {sentiment[1]}')
+    resume.spell_check()
