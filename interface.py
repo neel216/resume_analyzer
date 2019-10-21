@@ -37,6 +37,15 @@ def get_text_sentiment(resume):
     
     return f'The tone of the resume is {sentiment[0]} with a value of {sentiment[1]}' # TODO - add add code to add appropriate message?
 
+def correct_spelling(resume):
+    '''
+    Corrects the spelling of a resume
+    '''
+    misspelled_words = resume.spell_check()
+
+    return f'Corrected {misspelled_words} misspelled words in the resume.'
+
+
 if PAGE_COUNT_ALLOWED == True:
     FOLDER_PATH = os.getcwd() + '\\resumes'
 else:
@@ -57,8 +66,9 @@ while True:
 
             resume = Resume(FOLDER_PATH + '\\' + file_to_review)
             if PAGE_COUNT_ALLOWED == True:
-                print(get_page_count(resume))
-            print(get_text_sentiment(resume))
+                print('---- ' + get_page_count(resume))
+            print('---- ' + get_text_sentiment(resume))
+            print('---- ' + correct_spelling(resume))
 
         except PackageNotFoundError:
             print("Sorry, we didn't find that file in the 'resumes' folder.\n")

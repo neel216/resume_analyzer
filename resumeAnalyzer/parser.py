@@ -2,6 +2,7 @@
 Resume parser to give information to be evaluated in reviewer.py
 '''
 from docx import Document
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 PAGE_COUNT_ALLOWED = True
 try:
@@ -10,8 +11,8 @@ except ModuleNotFoundError:
     PAGE_COUNT_ALLOWED = False
     print('Page Count will not work in this system. Most likely cause of error is that the current Operating System is macOS.')
 
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from resumeAnalyzer import spellCheck
+import re
 
 
 class Resume:
@@ -102,27 +103,35 @@ class Resume:
                 sentiment = (_type, value)
 
         return sentiment
-    
+
     def spell_check(self):
-        
+        '''
+        Corrects misspelled words in the Word document
+        '''
+        mistakes = 0
+
+        # iterate over every word in the document; replace it if it is mispelled
         for paragraph in self.document.paragraphs:
-            for word in spellCheck.words(paragraph):
+            for word in spellCheck.words(paragraph.text):
                 corrected_word = spellCheck.correction(word)
-                if corrected_word != word:
-                    '''Replace word in words(paragraph)'''
-                    print(f'Correction should be made from -{word}- to -{corrected_word}')
-
-
-        #self.document.save(self.PATH)
+                if not bool(re.search(r'\d', word)) and corrected_word != word:
+                    paragraph.text = paragraph.text.replace(word, corrected_word)
+                    mistakes += 1
+                    
+        self.document.save(self.PATH)
+        return mistakes
 
 
 if __name__ == "__main__":
     import os
 
-    resume = Resume(os.path.dirname(os.path.realpath(__file__)) + '\\test_data\\resume_template.docx')
+    if PAGE_COUNT_ALLOWED == True:
+        resume = Resume(os.path.dirname(os.path.realpath(__file__)) + '\\test_data\\resume_template.docx')
+    else:
+        resume = Resume(os.path.dirname(os.path.realpath(__file__)) + '/test_data/resume_template.docx')
     resume.get_text()
     if PAGE_COUNT_ALLOWED == True:
         print(f'Detected {resume.page_count()} pages in resume')
     sentiment = resume.text_sentiment()
     print(f'Detected tone of resume is {sentiment[0]} of value {sentiment[1]}')
-    resume.spell_check()
+    print(f'Corrected {resume.spell_check()} misspelled words in the resume')
