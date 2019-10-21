@@ -61,8 +61,11 @@ while True:
 
         try:
             file_to_review = input('\nWhich resume would you like to review? Be sure to type in the full file name and extension. ')
-
-            resume = Resume(FOLDER_PATH + '\\' + file_to_review)
+            
+            if PAGE_COUNT_ALLOWED == True:
+                resume = Resume(FOLDER_PATH + '\\' + file_to_review)
+            else:
+                resume = Resume(FOLDER_PATH + '/' + file_to_review)
             if PAGE_COUNT_ALLOWED == True:
                 print('---- ' + get_page_count(resume))
             print('---- ' + get_text_sentiment(resume))
