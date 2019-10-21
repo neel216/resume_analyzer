@@ -1,5 +1,5 @@
 # Resume Analyzer
-An automated resume reviewer to analyze a federal sector resume and provide basic feedback (length, sentiment, spelling)
+An automated resume reviewer to analyze a federal sector resume and provide basic feedback (length, sentiment, spelling). Currently, the only supported extension for the reviewer is Word documents (.docx). The most functionality from the program can be achieved on a Windows system.
 
 ## Usage
 **READ ALL INSTRUCTIONS BEFORE BEGINNING INSTALLATION**
