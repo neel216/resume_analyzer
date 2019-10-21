@@ -17,5 +17,9 @@ An automated resume reviewer to analyze a federal sector resume and provide basi
     a. __Windows__: Double click the `reviewer.bat` file to run the resume reviewer. Windows may prevent you from running it, click 'More Info' then 'Run Anyway' to bypass the message. When you want to run the reviewer, this is the only file you will have to run.  
     b. __macOS__: Hold the 'control' key and click the `reviewer.command` file, then click 'Open' in the menu and 'Open' in the pop-up window to run the resume reviewer. The program will ask for your password (*your password will not show up when you type it in; this is normal. Just type in your password and hit 'Enter'*). When you want to run the reviewer, this is the only file you will have to run.
 
+### OS Support
+The library that allows the page count functions to work are not supported on macOS or Linux.
+If your program is not working on macOS or Linux, try using a Windows machine as the program has more support for that platform.
+
 ## Development
 Add any new dependencies into `requirements.txt`. They will be automatically detected by `setup.py`.
