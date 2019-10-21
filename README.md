@@ -2,7 +2,7 @@
 An automated resume reviewer to analyze a federal sector resume and provide basic feedback (length, sentiment, spelling). Currently, the only supported extension for the reviewer is Word documents (.docx). The most functionality from the program can be achieved on a Windows system.
 
 ## Instructions
-**READ ALL INSTRUCTIONS BEFORE BEGINNING INSTALLATION**
+**READ ALL INSTRUCTIONS BEFORE BEGINNING INSTALLATION. THE INSTRUCTIONS BELOW OUTLINE THE ONLY THINGS YOU WILL NEED FOR THE REVIEWER.**
 
 ### Installation
 1. Make sure you have installed the latest version of Python: https://www.python.org/downloads/release/python-380/  
