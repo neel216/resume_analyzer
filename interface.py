@@ -37,8 +37,10 @@ def get_text_sentiment(resume):
     
     return f'The tone of the resume is {sentiment[0]} with a value of {sentiment[1]}' # TODO - add add code to add appropriate message?
 
-
-FOLDER_PATH = os.getcwd() + '\\resumes'
+if PAGE_COUNT_ALLOWED == True:
+    FOLDER_PATH = os.getcwd() + '\\resumes'
+else:
+    FOLDER_PATH = os.getcwd() + '/resumes'
 
 while True:
     # Print resume files in resumes directory

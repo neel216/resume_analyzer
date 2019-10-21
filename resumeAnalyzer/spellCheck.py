@@ -2,13 +2,19 @@
 Python script for spell checking
 From: http://norvig.com/spell-correct.html
 '''
+from resumeAnalyzer.parser import PAGE_COUNT_ALLOWED
+
 import re
 from collections import Counter
 import os
 
+
 def words(text): return re.findall(r'\w+', text.lower())
 
-WORDS = Counter(words(open(os.path.dirname(os.path.realpath(__file__)) + '\\test_data\\words.txt').read()))
+if PAGE_COUNT_ALLOWED == True:
+    WORDS = Counter(words(open(os.path.dirname(os.path.realpath(__file__)) + '\\test_data\\words.txt').read()))
+else:
+    WORDS = Counter(words(open(os.path.dirname(os.path.realpath(__file__)) + '/test_data/words.txt').read()))
 
 def P(word, N=sum(WORDS.values())):
     '''

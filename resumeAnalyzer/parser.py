@@ -8,7 +8,7 @@ try:
     import win32com.client as win32
 except ModuleNotFoundError:
     PAGE_COUNT_ALLOWED = False
-    print('Page Count will not work in this system.')
+    print('Page Count will not work in this system. Most likely cause of error is that the current Operating System is macOS.')
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from resumeAnalyzer import spellCheck
