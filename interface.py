@@ -11,31 +11,29 @@ def get_page_count(resume):
     '''
     Returns the page count of a resume in string format
     '''
-    appropriate = None
+    change = ''
     pages = resume.page_count()
 
-    if pages < 5 or pages > 7:
-        appropriate = False
-    else:
-        appropriate = True
+    if pages < 5:
+        change = ' The resume should have more pages/length.'
+    elif pages > 7:
+        change = ' The resume should have fewer pages and less length.'
     
-    return f'There are {pages} pages in the resume' # TODO - add code to add appropriate message?
+    return f'There are {pages} pages in the resume.{change}'
 
 def get_text_sentiment(resume):
     '''
     Returns the majority calculated sentiment of a resume in string format
     '''
-    appropriate = None
+    change = ' The resume has an appropriate tone.'
     sentiment = resume.text_sentiment()
 
     if sentiment[0] == 'negative':
-        appropriate = False
+        change = ' The resume should have a more positive tone.'
     elif sentiment[0] == 'positive' and sentiment[1] >= 0.5:
-        appropriate = False
-    else:
-        appropriate = True
+        change = ' The resume should have a slightly less positive tone.'
     
-    return f'The tone of the resume is {sentiment[0]} with a value of {sentiment[1]}' # TODO - add add code to add appropriate message?
+    return f'The tone of the resume is {sentiment[0]} with a value of {sentiment[1]}.{change}'
 
 def correct_spelling(resume):
     '''
