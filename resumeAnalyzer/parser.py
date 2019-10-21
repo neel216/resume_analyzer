@@ -9,7 +9,7 @@ try:
     import win32com.client as win32
 except ModuleNotFoundError:
     PAGE_COUNT_ALLOWED = False
-    print('Page Count will not work in this system. Most likely cause of error is that the current Operating System is macOS.')
+    print('Page Count will not work in this system. Most likely cause of error is that the current Operating System is macOS. If you need to use the page count functionality, move to a Windows system.')
 
 from resumeAnalyzer import spellCheck
 import re
@@ -32,7 +32,7 @@ class Resume:
     
     def page_count(self):
         '''
-        Return the number of pages in the document/resume
+        Returns the number of pages in the document/resume
         '''
         try:
             # open word document
