@@ -32,6 +32,6 @@ if '.gitignore' in os.listdir('resumes/'):
     import nltk
 
     nltk.download('vader_lexicon') # Load nltk library for sentiment analysis
-    os.remove('resumes/.gitignore') # Delete .gitignore in resumes folder
+    os.remove('resumes/placeHolder.txt') # Delete placeholder file in resumes folder
 else:
     print('Loaded dependencies.')
