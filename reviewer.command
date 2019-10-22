@@ -2,7 +2,8 @@
 cd "$(dirname "$0")"
 cd resumes
 
-if [ hash placeHolder.txt 2>/dev/null ]; then
+FILE=placeHolder.txt
+if [ -f "$FILE" ]; then
     echo "Installing dependencies."
     cd ..
     sudo easy_install pip
