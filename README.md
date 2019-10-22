@@ -20,7 +20,7 @@ An automated resume reviewer to analyze a federal sector resume and provide basi
     b. __macOS__: Hold the 'control' key and click the `reviewer.command` file, then click 'Open' in the menu and 'Open' in the pop-up window to run the resume reviewer. The program will ask for your password (*your password will not show up when you type it in; this is normal. Just type in your password and hit 'Enter'*). When you want to run the reviewer, this is the only file you will have to run.
     
 ### Usage
-__Windows__: Move any resumes to be reviewed into the 'resumes' folder. Double click the `reviewer.bat` file to run the reviewer. There should not be a Windows prevention window this time.
+__Windows__: Move any resumes to be reviewed into the 'resumes' folder. Double click the `reviewer.bat` file to run the reviewer. There should not be a Windows prevention window this time.  
 __macOS__: Move any resumes to be reviewed into the 'resumes' folder. Double click the `reviewer.command` file to run the reviewer. There should not be a macOS pop-up window this time.
 
 ## OS Support
