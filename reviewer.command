@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 cd resumes
 
-if [ hash .gitignore 2>/dev/null ]; then
+if [ hash placeHolder.txt 2>/dev/null ]; then
     echo "Installing dependencies."
     cd ..
     sudo easy_install pip
