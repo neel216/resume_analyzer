@@ -5,7 +5,7 @@ An automated resume reviewer to analyze a federal sector resume and provide basi
 **READ ALL INSTRUCTIONS BEFORE BEGINNING INSTALLATION. THE INSTRUCTIONS BELOW OUTLINE THE ONLY THINGS YOU WILL NEED FOR THE REVIEWER.**
 
 ### Installation
-1. Make sure you have installed the latest version of Python: https://www.python.org/downloads/release/python-380/  
+1. Make sure you have installed the latest version of Python 3.7.5: https://python.org/downloads/release/python-375/  
     a. __Windows__: scroll down to 'Files'. Then, download and run the 'Windows x86-64 executable installer'. You should install using the recommended packages.  
     b. __macOS__: scroll down to 'Files'. Then, download and run the 'macOS 64-bit installer'  
     c. **ALL OPERATING SYSTEMS**: If you are prompted in the installer, **make sure you check 'Add Python to PATH' and 'Allow Python to bypass the maximum PATH        character limit'**
