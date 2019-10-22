@@ -1,6 +1,6 @@
 #!/bin/bash
-cd `dirname $0`
-cd ./resumes/
+cd "$(dirname "$0")"
+cd resumes
 
 if [ hash .gitignore 2>/dev/null ]; then
     echo "Installing dependencies."
@@ -14,12 +14,12 @@ if [ hash .gitignore 2>/dev/null ]; then
     open "Install Certificates.command"
     sleep 3
 
-    cd `dirname $0`
+    cd "$(dirname "$0")"
     python3 -c "import nltk; nltk.download('vader_lexicon')"
     rm ./resumes/.gitignore
 fi
 
 echo "Done loading dependences."
 
-cd `dirname $0`
+cd "$(dirname "$0")"
 python3 interface.py
