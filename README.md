@@ -28,5 +28,5 @@ The library that allows the page count functions to work is not supported on mac
 Each OS release should be stable, but if your program is not working on macOS, try using a Windows machine as the program has the most support for Windows or consider running a Windows virtual machine or dual-booting using [Bootcamp](https://support.apple.com/boot-camp).
 
 ## Development
-Add any new dependencies into `requirements.txt`. They will be automatically detected by `setup.py`.  
+Add any new dependencies into `requirements.txt` for Windows. They will be automatically detected by `setup.py` (only for Windows). Dependencies for macOS must be manually put into `reviewer.command`. macOS installation is stable, but the bash script should be cleaned up and dependent on `requirements.txt` not for manual depednency updates.  
 Page count functions are dependent on macOS support for the `pywin32` library.
