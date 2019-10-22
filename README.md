@@ -24,8 +24,8 @@ __Windows__: Move any resumes to be reviewed into the 'resumes' folder. Double c
 __macOS__: Move any resumes to be reviewed into the 'resumes' folder. Double click the `reviewer.command` file to run the reviewer. There should not be a macOS pop-up window this time.
 
 ## OS Support
-The library that allows the page count functions to work are not supported on macOS or Linux.
-If your program is not working on macOS or Linux, try using a Windows machine as the program has the most support for Windows or consider running a Windows virtual machine or dual-booting using [Bootcamp](https://support.apple.com/boot-camp).
+The library that allows the page count functions to work is not supported on macOS.  
+Each OS release should be stable, but if your program is not working on macOS, try using a Windows machine as the program has the most support for Windows or consider running a Windows virtual machine or dual-booting using [Bootcamp](https://support.apple.com/boot-camp).
 
 ## Development
 Add any new dependencies into `requirements.txt`. They will be automatically detected by `setup.py`.  
