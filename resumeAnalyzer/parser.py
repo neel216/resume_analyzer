@@ -9,7 +9,7 @@ try:
     import win32com.client as win32
 except ModuleNotFoundError:
     PAGE_COUNT_ALLOWED = False
-    print('Page Count will not work in this system. Most likely cause of error is that the current Operating System is macOS. If you need to use the page count functionality, move to a Windows system.')
+    print('Page Count will not work in this system. Most likely cause of error is that the current Operating System is macOS (the library for the page count functions are not supported on macOS). If you need to use the page count functionality, consider moving to a Windows system or using a Virtual Machine or dual-booting using Bootcamp.')
 
 from resumeAnalyzer import spellCheck
 import re
