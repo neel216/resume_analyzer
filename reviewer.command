@@ -16,7 +16,7 @@ if [ hash placeHolder.txt 2>/dev/null ]; then
 
     cd "$(dirname "$0")"
     python3 -c "import nltk; nltk.download('vader_lexicon')"
-    rm ./resumes/.gitignore
+    rm ./resumes/placeHolder.txt
 fi
 
 echo "Done loading dependences."
