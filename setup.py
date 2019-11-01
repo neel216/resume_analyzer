@@ -9,7 +9,7 @@ This file installs the required dependencies for the resume reviewer.
 import os
 
 # If running the reviewer for the first time
-if '.gitignore' in os.listdir('resumes/'):
+if 'placeHolder.txt' in os.listdir('resumes/'):
     import pip
     from pip._internal import main as pipmain
 
