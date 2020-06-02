@@ -20,7 +20,7 @@ if [ -f "$FILE" ]; then
     rm ./resumes/placeHolder.txt
 fi
 
-echo "Done loading dependences."
+echo "Done loading dependencies."
 
 cd "$(dirname "$0")"
 python3 interface.py
