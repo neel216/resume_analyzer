@@ -1,2 +1,2 @@
-python setup.py
-python interface.py
+python3 setup.py
+python3 interface.py
